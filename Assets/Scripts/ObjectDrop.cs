@@ -6,14 +6,16 @@ using UnityEngine;
 public class ObjectDrop : MonoBehaviour
 {
     [SerializeField] private GameObject trapDropped;
-    [SerializeField] private GameObject boomEffect;
+    private AudioSource sfxSound;
     private float rotateSpeed;
 
     // Start is called before the first frame update
     void Start()
     {
         trapDropped.SetActive(false);
-        rotateSpeed = Random.Range(10f, 15f);
+        rotateSpeed = Random.Range(10f, 20f);
+        sfxSound = gameObject.GetComponentInParent<AudioSource>();
+        sfxSound.PlayOneShot(SoundManager.Instance.enemyDrop);
     }
 
     // Update is called once per frame
@@ -26,14 +28,14 @@ public class ObjectDrop : MonoBehaviour
     {
         if(collider.gameObject.CompareTag("Player"))
         {
-            Instantiate(boomEffect, transform.position, Quaternion.identity);
             DestroyObject();
         }
         if(collider.gameObject.CompareTag("Ground"))
         {
-            SoundManager.Instance.PlaySFX(SoundManager.Instance.enemyHit);
             trapDropped.SetActive(true);
-            trapDropped.transform.position = new Vector3(transform.position.x + Random.Range(-0.3f, 0.3f), transform.position.y, 0);
+            trapDropped.transform.position = new Vector3(transform.position.x + Random.Range(-0.4f, 0.4f), transform.position.y, 0);
+            //Play sound
+            sfxSound.PlayOneShot(SoundManager.Instance.enemyHit);
             DestroyObject();
         }
     }

@@ -134,7 +134,36 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Tree (15)_0
+      rect:
+        serializedVersion: 2
+        x: 583
+        y: 86
+        width: 753
+        height: 842
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: -540}
+        - {x: 960, y: 0}
+        - {x: 0, y: 540}
+        - {x: -960, y: 0}
+      physicsShape:
+      - - {x: 0, y: -540}
+        - {x: 960, y: 0}
+        - {x: 0, y: 540}
+        - {x: -960, y: 0}
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffccf4aee33052d498c8ce6aba9d3550
+      internalID: 329674699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -145,7 +174,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Tree (15)_0: 329674699
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

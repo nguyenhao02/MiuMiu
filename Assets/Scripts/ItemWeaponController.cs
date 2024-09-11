@@ -23,7 +23,7 @@ public class ItemWeaponController : MonoBehaviour
         normalSize = weaponImageTras.localScale; 
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (!isMoving)
         {
@@ -65,9 +65,9 @@ public class ItemWeaponController : MonoBehaviour
     {
         if (collider.gameObject.CompareTag("Player"))
         {
-            isMoving = true;
+           isMoving = true;
 
-            SoundManager.Instance.PlaySFX(SoundManager.Instance.item);
+           SoundManager.Instance.PlaySFX(SoundManager.Instance.item);
         }
     }
 

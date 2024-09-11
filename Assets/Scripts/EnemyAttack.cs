@@ -13,6 +13,7 @@ public class EnemyAttack : MonoBehaviour
             Animator playerAnim = collider.GetComponentInParent<Animator>();
             playerAnim.SetTrigger("isHurt");
             DataManager.Instance.MinusPlayerHealth(attack);
+            SoundManager.Instance.PlaySFX(SoundManager.Instance.hurt);
         }
     }
 }

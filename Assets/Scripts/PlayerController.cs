@@ -20,8 +20,6 @@ public class PlayerController : MonoBehaviour
     private float gravity;
     //Attack
     private float timeShowAttack = 0.3f;
-    private float timeCountShowAttack =  0f;
-    private float nextAttack = 0f;
     private float attackInterval = 0.5f;
     //Attack weapon
     private bool isDragging = false;
@@ -97,7 +95,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Space))
         {   
 
-            SoundManager.Instance.PlaySFX(SoundManager.Instance.shoots[(int)Random.Range(0, 3)]);
+            SoundManager.Instance.PlaySFX(SoundManager.Instance.shoots[Random.Range(0, SoundManager.Instance.shoots.Count)]);
             isDragging = false;
             ani.SetTrigger("isAttack");
             lastShootTime = Time.time;
@@ -111,26 +109,27 @@ public class PlayerController : MonoBehaviour
     private void Attack()
     {
         if(isPause) return;
-        if (Input.GetMouseButtonDown(1) && Time.time > nextAttack)
-        {
-            nextAttack = Time.time + attackInterval;
-            ani.SetTrigger("isAttack");
-            playerAttack.SetActive(true);
-            SoundManager.Instance.PlaySFX(SoundManager.Instance.attack1);
-            isAttack = true;
-            timeCountShowAttack = 0f;
-        }
 
-        if(isAttack)
+        if (Input.GetMouseButtonDown(1) && !isAttack)
         {
-            timeCountShowAttack += Time.deltaTime;
-            if(timeCountShowAttack >= timeShowAttack)
-            {
-                playerAttack.SetActive(false);
-                isAttack = false;
-            }
+            StartCoroutine(HandleAttack());
         }
     }
+    private IEnumerator HandleAttack()
+    {
+        isAttack = true;
+        ani.SetTrigger("isAttack");
+        playerAttack.SetActive(true);
+        SoundManager.Instance.PlaySFX(SoundManager.Instance.attack1);
+
+        yield return new WaitForSeconds(timeShowAttack);
+
+        playerAttack.SetActive(false);
+        isAttack = false;
+
+        yield return new WaitForSeconds(attackInterval - timeShowAttack);
+    }
+
 
     public void Animations()
     {
@@ -213,7 +212,7 @@ public class PlayerController : MonoBehaviour
         transform.localScale = localScale;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.CompareTag("Ladder"))
         {

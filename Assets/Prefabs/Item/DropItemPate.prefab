@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8983520308179050278}
   - component: {fileID: 1353092570568608679}
   - component: {fileID: 287945319340818376}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DropItemPate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -119,9 +119,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.33, y: -1.94}
+  m_Offset: {x: 0, y: -0.81}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 2.66
 --- !u!50 &1353092570568608679
 Rigidbody2D:
   serializedVersion: 4

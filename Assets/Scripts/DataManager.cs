@@ -118,7 +118,6 @@ public class DataManager : MonoBehaviour
         {
             playerHealth -= health;
         }
-        SoundManager.Instance.PlaySFX(SoundManager.Instance.hurt);
     }
 
     public void AddPlayerFish(int fish)

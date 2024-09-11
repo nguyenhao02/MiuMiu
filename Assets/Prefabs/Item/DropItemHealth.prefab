@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5641721477620222585}
   - component: {fileID: 4802605693225432662}
   - component: {fileID: 5906541524124972412}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DropItemHealth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,7 +121,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 1
 --- !u!50 &4802605693225432662
 Rigidbody2D:
   serializedVersion: 4

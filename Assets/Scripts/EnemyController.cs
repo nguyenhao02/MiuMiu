@@ -11,20 +11,13 @@ public class EnemyController : MonoBehaviour
     private int currentHealth;
     private HealthBar healthBar;
     // Start is called before the first frame update
-    void Awake()
-    {
-        healthBar = GetComponentInChildren<HealthBar>();
-    }
     void Start()
     {
+        healthBar = GetComponentInChildren<HealthBar>();
+        healthBar.gameObject.SetActive(false);
         currentHealth = maxHealth;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     public void AddDamage(int damage)
     {
         if(damageText != null)
@@ -41,11 +34,11 @@ public class EnemyController : MonoBehaviour
 
         if(currentHealth <= 0) 
         {
-            makeDead();
+            MakeDead();
         }
     }
 
-    public void makeDead()
+    public void MakeDead()
     {
         DropItems();
         Destroy(gameObject);

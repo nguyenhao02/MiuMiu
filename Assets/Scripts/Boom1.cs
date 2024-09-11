@@ -4,25 +4,16 @@ using UnityEngine;
 
 public class Boom1 : MonoBehaviour
 {
-    [SerializeField] GameObject boom1Collider;
-   void Start()
-   {
-        Destroy(gameObject, 1.95f);
-   }
-   
-    void Update()
+    [SerializeField] private GameObject boom1Collider;
+    [SerializeField] private float waitAttack;
+    void FixedUpdate()
     {
-        ShowBoom();
+        StartCoroutine(ShowBoom());
     }
 
-    private void ShowBoom()
+    private IEnumerator ShowBoom()
     {
-        StartCoroutine(WaitAndShow());
-    }
-
-    private IEnumerator WaitAndShow()
-    {
-        yield return new WaitForSeconds(1.8f);
+        yield return new WaitForSeconds(waitAttack);
         boom1Collider.gameObject.SetActive(true);
     }
 }

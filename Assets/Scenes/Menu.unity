@@ -10133,7 +10133,7 @@ MonoBehaviour:
   m_text: "(Ch\u1EA1m v\xE0o v\u1ECB tr\xED b\u1EA5t k\u1EF3 b\xEAn ngo\xE0i \u0111\u1EC3
     tho\xE1t)"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 7884eb5bbee95254995b1de8d4a6eb11, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e51e653b95483bd40b50d286bcd0a1a9, type: 2}
   m_sharedMaterial: {fileID: -7024290475039845778, guid: e51e653b95483bd40b50d286bcd0a1a9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -13232,6 +13232,7 @@ MonoBehaviour:
   enemyHit: {fileID: 8300000, guid: 76c4a1770e6dc9045b354120aa01903e, type: 3}
   notice: {fileID: 8300000, guid: ea8841d9471129f4a8edcc4e6d70fd50, type: 3}
   nextLevel: {fileID: 8300000, guid: ec052f8cbff57dd4bb0b249054730bbe, type: 3}
+  firework: {fileID: 8300000, guid: fc3a85cb598bb894caab9e09b9d019be, type: 3}
 --- !u!4 &1539370800
 Transform:
   m_ObjectHideFlags: 0

@@ -11,12 +11,13 @@ GameObject:
   - component: {fileID: 2879924741087265221}
   - component: {fileID: 3623001768813909435}
   - component: {fileID: 5858494254427827513}
-  - component: {fileID: 1188944661340068711}
   - component: {fileID: 8745648454472818009}
   - component: {fileID: 6357521756158672779}
   - component: {fileID: 706229966923773663}
   - component: {fileID: 4783436890900724454}
-  m_Layer: 0
+  - component: {fileID: 2446017276865065806}
+  - component: {fileID: 3957722406303784445}
+  m_Layer: 8
   m_Name: Rat1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -33,7 +34,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2145149902674126931}
@@ -112,41 +113,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!58 &1188944661340068711
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2676938435350141897}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.61, y: -0.3}
-  serializedVersion: 2
-  m_Radius: 0.58
 --- !u!50 &8745648454472818009
 Rigidbody2D:
   serializedVersion: 4
@@ -186,7 +152,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 940a502feed5255459a5be4a9c53dd6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boomEffect: {fileID: 2085882736287783782, guid: edc887daed1b69c428f132fe936bee24, type: 3}
   rb: {fileID: 8745648454472818009}
   speed: 5
 --- !u!114 &706229966923773663
@@ -216,7 +181,63 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageText: {fileID: 8258793305143838586, guid: 28ea2e69920b7ae4290edfbd08e4ba63, type: 3}
   maxHealth: 6
-  dropItems: []
+  dropItems:
+  - itemPrefab: {fileID: 944515939275089290, guid: 9f17b7d8b75d4e246a7c165126198f12, type: 3}
+    dropRate: 0.4
+    minDropAmount: 1
+    maxDropAmount: 2
+  - itemPrefab: {fileID: 5153672926090204415, guid: a37d77a5d0c76ee47a608397c70ff1d1, type: 3}
+    dropRate: 0.4
+    minDropAmount: 1
+    maxDropAmount: 2
+--- !u!114 &2446017276865065806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2676938435350141897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0ad08943e027394891c7cdbc49cbaf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boomEffect: {fileID: 2085882736287783782, guid: edc887daed1b69c428f132fe936bee24, type: 3}
+--- !u!70 &3957722406303784445
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2676938435350141897}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.39, y: -0.19}
+  m_Size: {x: 2.76, y: 1.32}
+  m_Direction: 1
 --- !u!1001 &517039906865741940
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -225,6 +246,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2879924741087265221}
     m_Modifications:
+    - target: {fileID: 803003313895705961, guid: 22dd21131e6f9f04785d87981668424b, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1939362000550619175, guid: 22dd21131e6f9f04785d87981668424b, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -305,9 +330,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2154141138038368426, guid: 22dd21131e6f9f04785d87981668424b, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4573345597252783801, guid: 22dd21131e6f9f04785d87981668424b, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7275736503685166809, guid: 22dd21131e6f9f04785d87981668424b, type: 3}
       propertyPath: m_Name
       value: CanvasHealthBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 7275736503685166809, guid: 22dd21131e6f9f04785d87981668424b, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9112706007835828260, guid: 22dd21131e6f9f04785d87981668424b, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9197681846286368534, guid: 22dd21131e6f9f04785d87981668424b, type: 3}
       propertyPath: m_AnchorMax.x

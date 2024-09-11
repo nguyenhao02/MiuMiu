@@ -10,7 +10,7 @@ public class ItemFishDrop : MonoBehaviour
     private Rigidbody2D rb;
     private Vector3 imageCanvasPosition;
     private bool isMoving = false; 
-    private bool canCheckCollision = false;
+    private bool canMove = false;
 
     void Start()
     {
@@ -18,15 +18,14 @@ public class ItemFishDrop : MonoBehaviour
         fishImageTras = fishImage.GetComponent<RectTransform>();
 
         rb = gameObject.GetComponent<Rigidbody2D>();
-        rb.AddForce(new Vector2(Random.Range(-4f, 4f), Random.Range(7f, 12f)), ForceMode2D.Impulse);       
+        rb.velocity = new Vector2(Random.Range(-4f, 4f), Random.Range(5f, 10f));
 
         normalSize = fishImageTras.localScale ; 
 
-        // Delay ngắn để tránh va chạm ngay khi đối tượng được tạo ra
-        StartCoroutine(EnableCollisionCheck());
+        StartCoroutine(WaitAndMove());
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (isMoving)
         {
@@ -53,9 +52,9 @@ public class ItemFishDrop : MonoBehaviour
         
     }
 
-    private void OnTriggerStay2D(Collider2D collider)
+    private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (canCheckCollision && collider.gameObject.CompareTag("Player"))
+        if (collider.gameObject.CompareTag("Player") && canMove)
         {
             rb.gravityScale = 0;
             isMoving = true;
@@ -79,10 +78,9 @@ public class ItemFishDrop : MonoBehaviour
         return Vector3.zero;   
     }
 
-    private IEnumerator EnableCollisionCheck()
+     private IEnumerator WaitAndMove()
     {
-        // Đợi một khoảng thời gian ngắn trước khi cho phép kiểm tra va chạm
-        yield return new WaitForSeconds(0.5f);
-        canCheckCollision = true;
+        yield return new WaitForSeconds(1f);
+        canMove = true;
     }
 }

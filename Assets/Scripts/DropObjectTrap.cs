@@ -5,19 +5,10 @@ public class DropObjectTrap : MonoBehaviour
 {
     [SerializeField] Transform dropPosition;
     [SerializeField] GameObject dropObject;
-    [SerializeField] GameObject dropObject2;
+    [SerializeField] GameObject imageObject;
     [SerializeField] float dropCooldown = 2f; // Thời gian chờ giữa các lần drop
     private bool canDrop = true; // Biến kiểm soát việc drop
 
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-    }
 
     private void DropObject()
     {
@@ -30,7 +21,7 @@ public class DropObjectTrap : MonoBehaviour
     private IEnumerator DropCooldown()
     {
         yield return new WaitForSeconds(dropCooldown);
-        dropObject2.SetActive(true);
+        imageObject.SetActive(true);
         canDrop = true;
     }
 
@@ -39,8 +30,7 @@ public class DropObjectTrap : MonoBehaviour
         if(!canDrop) return;
         if (collider.gameObject.CompareTag("Player") )
         {
-            dropObject2.SetActive(false);
-            SoundManager.Instance.PlaySFX(SoundManager.Instance.enemyDrop);
+            imageObject.SetActive(false);
             DropObject();
         }
     }

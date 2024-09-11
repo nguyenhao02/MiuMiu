@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2216431086591917760}
   - component: {fileID: 1985704230237710887}
   - component: {fileID: 343350554195982948}
+  - component: {fileID: 2246929010091755281}
   m_Layer: 0
   m_Name: EnemyBoom1
   m_TagString: Untagged
@@ -121,6 +122,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boom1Collider: {fileID: 7400273338395532679}
+  waitAttack: 1.6
+--- !u!114 &2246929010091755281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4163404958242500885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e9abb42f1312194488a13ae8eeacf44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aliveTime: 1.9
 --- !u!1 &7400273338395532679
 GameObject:
   m_ObjectHideFlags: 0

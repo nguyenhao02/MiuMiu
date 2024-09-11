@@ -16,6 +16,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip item, itemDrop;
     public AudioClip enemyDrop, enemyHit;
     public AudioClip notice, nextLevel;
+    public AudioClip firework;
 
     private void Awake()
     {

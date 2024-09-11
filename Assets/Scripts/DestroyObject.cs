@@ -6,7 +6,7 @@ using UnityEngine.Video;
 public class DestroyObject : MonoBehaviour
 {
     public float aliveTime;
-    void Awake()
+    void Start()
     {
         Destroy(gameObject, aliveTime);
     }

@@ -11,7 +11,7 @@ public class WeaponController : MonoBehaviour
         if(collider.gameObject.CompareTag("Enemy"))
         {
             Quaternion randomRotation = Quaternion.Euler(0, 0, UnityEngine.Random.Range(-180f, 180f));
-            Instantiate(boomEffect, collider.transform.position, randomRotation);
+            Instantiate(boomEffect, transform.position, randomRotation);
         }
     }
 }
